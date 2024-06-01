@@ -6,6 +6,8 @@ By simply inputting the domain name under your control (e.g., example.com) and i
 
 ## Usage
 
-`./run.sh` and enter the domain name and its associated NameServer's IP address. Also make sure you have Python(>=3) installed.
+`./run.sh` and enter the domain name and its associated NameServer's IP address.
+
+Make sure you have `python(>=3), docker, dnssec-keygen(come with bind9utils)` installed.
 
 You can utilize `restart-docker.sh` to swiftly restart the CoreDNS service after making local configuration changes.

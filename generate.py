@@ -83,6 +83,7 @@ os.makedirs(config_dir, exist_ok=True)
 
 template_file = f"template.db"
 template_command = "dnssec-keygen -K $dir -a $alg -b 2048 -n ZONE -f KSK $domain"
+gen_key(parent_domain, 8, dnskey_dir)
 
 parent_key_name = get_key_name(parent_domain, None, dnskey_dir)
 output_config = f""". {{
