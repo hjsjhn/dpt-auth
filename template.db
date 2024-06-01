@@ -1,0 +1,15 @@
+; $name.$parent_domain domain file
+$TTL    180
+@       IN      SOA     ns1.$parent_domain. admin.$parent_domain. (
+                                4         ; Serial
+                                180; Refresh
+                                180; Retry
+                                2419200   ; Expire
+                                180 )  ; Negative Cache TTL
+;
+; Name servers
+$name.$parent_domain.      IN      NS      ns1.checkmydns.club.
+
+; IP address of the domain
+ns1.$parent_domain.  IN      A	      $ns_ip
+$name.$parent_domain.	IN	A	$rdata_a
