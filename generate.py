@@ -33,8 +33,8 @@ alg_map = {
     # 12: "ECCGOST",
     13: "ECDSAP256SHA256",
     14: "ECDSAP384SHA384",
-    15: "ED25519",
-    16: "ED448"
+    # 15: "ED25519",
+    # 16: "ED448"
 }
 
 
@@ -144,7 +144,7 @@ with open(template_file) as f:
         output_config += Corefile_temp.replace(
             "$name", bad_name).replace("$key_name", bad_key_name) + '\n'
 
-with open("Corefile", "w") as of:
+with open(f"{root_dir}/Corefile", "w") as of:
     of.write(output_config)
 
 # read the .key file of parent domain and print the first line that contains str "DNSKEY"

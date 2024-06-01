@@ -30,5 +30,13 @@ read ns_ip
 python3 generate.py --parent_domain $parent_domain --ns_ip $ns_ip
 python3 fill_ds_record.py --parent_domain $parent_domain
 mkdir -p coredns_file
-docker run -d -p53:53/udp -p8080:8080 -v ./coredns_config:/etc/coredns -v ./coredns_file:/var/lib/coredns --name coredns-container hjsjhn/coredns-dpt:latest
+chmod 777 coredns_file
+docker run -d -p53:53/udp -p8080:8080 -v $(realpath ./coredns_config):/etc/coredns -v $(realpath ./coredns_file):/var/lib/coredns --name coredns-container hjsjhn/coredns-dpt:latest
+
+while [ ! "$(ls -A ./coredns_file/)" ]; do
+    echo "Waiting for DNSSEC signing..."
+    sleep 3
+done
+sleep 1
+
 python3 break_rrsig.py

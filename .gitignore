@@ -1,4 +1,5 @@
-config
+coredns_config
+coredns_file
 DNSKEY
 *.db
 !template.db
