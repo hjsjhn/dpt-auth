@@ -2,4 +2,4 @@ config
 DNSKEY
 *.db
 !template.db
-Corefile*
+Corefile

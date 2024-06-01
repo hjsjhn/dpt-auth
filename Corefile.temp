@@ -1,0 +1,8 @@
+$name.$parent_domain {
+    file /var/lib/coredns/db.$name.$parent_domain.signed
+    sign /etc/coredns/config/$name.$parent_domain.db {
+        key file /etc/coredns/DNSKEY/$key_name
+    }
+    log
+    errors
+}

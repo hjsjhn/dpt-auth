@@ -1,11 +1,5 @@
 #!/bin/bash
 
-echo "Enter the domain name(i.e. example.com): "
-read parent_domain
-
-echo "Enter the NS IP address: "
-read ns_ip
-
 # check python3 dependency
 if ! command -v python3 &> /dev/null
 then
@@ -26,6 +20,12 @@ then
     echo "Docker is not installed. Please install docker and try again."
     exit
 fi
+
+echo "Enter the domain name(i.e. example.com): "
+read parent_domain
+
+echo "Enter the NS IP address: "
+read ns_ip
 
 python3 generate.py --parent_domain $parent_domain --ns_ip $ns_ip
 python3 fill_ds_record.py --parent_domain $parent_domain
